@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ty.tybs.web.mapper.TransListMapper">
+
+    <select id="getObjectByForeignKey" resultType="com.ty.tybs.web.entity.po.TransListInfo">
+        SELECT * FROM trans_list_info WHERE card_Base_Info_Id = #{cardBaseInfoId}AND trans_Time &gt;=#{startTime}AND trans_Time &lt;=#{endTime}
+    </select>
+
+    <insert id="addTransList" >
+        INSERT INTO trans_list_info(trans_List_Info_Id,card_Base_Info_Id,serial_Number,trans_Amount,trans_Type,trans_time)
+        VALUES (#{transListInfoId},
+                #{cardBaseInfoId},
+                #{serialNumber},
+                #{transAmount},
+                #{transType},
+                #{merchandiseDate})
+    </insert>
+
+</mapper>

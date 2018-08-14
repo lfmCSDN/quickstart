@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Youlema.com Inc.
+  ~ Copyright (c) 2011-2013 All Rights Reserved
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 为根元素节点， 一个namespace对应一个dao -->
+<mapper namespace="com.ty.tybs.web.mapper.AdminMapper">
+    <select id="getUser" resultType="com.ty.tybs.web.entity.po.UserAdminInfo">
+        SELECT * FROM user_admin_info WHERE admin_Name = #{adminName} and admin_Pwd = #{adminPwd}
+    </select>
+
+    <insert id="addOperator" parameterType="com.ty.tybs.web.entity.vo.UserOperInfoVo">
+        INSERT INTO user_oper_info(user_Oper_Info_Id,oper_Name,login_Pwd,oper_Sex,oper_Statu,oper_Mobil_Phone,oper_Card_Id,oper_Email)
+        VALUES (#{userOperInfoVo.userOperInfoId},
+                #{userOperInfoVo.operName},
+                #{userOperInfoVo.loginPwd},
+                #{userOperInfoVo.operSex},
+                #{userOperInfoVo.operStatu},
+                #{userOperInfoVo.operMobilPhone},
+                #{userOperInfoVo.operCardId},
+                #{userOperInfoVo.operEmail})
+    </insert>
+
+    <select id="getOperator" resultType="com.ty.tybs.web.entity.vo.UserOperInfoVo"
+            parameterType="com.ty.tybs.web.entity.qo.UserOperInfoQo">
+        SELECT * FROM user_oper_info WHERE user_Oper_Info_Id = #{userOperInfoQo.userOperInfoId}
+    </select>
+
+
+    <update id="updateOperator" parameterType="com.ty.tybs.web.entity.vo.UserOperInfoVo">
+    UPDATE user_oper_info SET
+            user_Oper_Info_Id = #{userOperInfoVo.userOperInfoId},
+            oper_Name = #{userOperInfoVo.operName},
+            oper_Card_Id = #{userOperInfoVo.operCardId},
+            oper_Mobil_Phone = #{userOperInfoVo.operMobilPhone},
+            oper_Email = #{userOperInfoVo.operEmail},
+            oper_Statu = #{userOperInfoVo.operStatu}
+    WHERE user_Oper_Info_Id = #{userOperInfoVo.userOperInfoId}
+    </update>
+
+    <update id="deleteOperator">
+        UPDATE  user_oper_info
+        SET oper_Statu = "注销"
+       WHERE user_Oper_Info_Id = #{userOperInfoId}
+    </update>
+
+    <!--<delete id="delOper" parameterType="com.ty.tybs.web.entity.qo.UserOperInfoQo">-->
+    <!--DELETE FROM user_oper_info WHERE user_Oper_Info_Id = #{userOperInfoQo.userOperInfoId}-->
+    <!--</delete>-->
+    <!--根据身份证号查找userOperInfo对象-->
+    <select id="getObjectByIdCard" resultType="com.ty.tybs.web.entity.po.UserOperInfo">
+        SELECT * FROM user_oper_info WHERE oper_Card_Id = #{operCardId}
+    </select>
+
+    <!--根据主键查找userOperInfo对象-->
+    <select id="getObjectByPrimarykey" resultType="com.ty.tybs.web.entity.po.UserOperInfo">
+        SELECT * FROM user_oper_info WHERE user_Oper_Info_Id = #{userOperInfoId}
+    </select>
+
+    <!--根据姓名查找userOperInfo对象-->
+    <select id="getObjectByName" resultType="com.ty.tybs.web.entity.po.UserOperInfo">
+        SELECT * FROM user_oper_info WHERE oper_Name = #{operName}
+    </select>
+
+</mapper>

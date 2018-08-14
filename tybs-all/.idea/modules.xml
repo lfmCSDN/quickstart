@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/tybs-all.iml" filepath="$PROJECT_DIR$/tybs-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tybs-parent/tybs-parent.iml" filepath="$PROJECT_DIR$/tybs-parent/tybs-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tybs-web-manager/tybs-web-manager.iml" filepath="$PROJECT_DIR$/tybs-web-manager/tybs-web-manager.iml" />
+    </modules>
+  </component>
+</project>

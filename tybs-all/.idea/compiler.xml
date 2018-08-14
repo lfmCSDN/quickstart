@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="tybs-web-manager" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tsp-bat" target="1.5" />
+      <module name="tsp-client" target="1.5" />
+      <module name="tsp-datastage" target="1.5" />
+      <module name="tsp-exe" target="1.5" />
+      <module name="tsp-http" target="1.5" />
+      <module name="tsp-jar" target="1.5" />
+      <module name="tsp-kettle" target="1.5" />
+      <module name="tsp-model" target="1.5" />
+      <module name="tsp-service" target="1.5" />
+      <module name="tsp-shell" target="1.5" />
+      <module name="tsp-spi" target="1.5" />
+      <module name="tsp-storedpro" target="1.5" />
+      <module name="tsp-tmp" target="1.5" />
+      <module name="tsp-turnover" target="1.5" />
+      <module name="tybs-all" target="1.7" />
+      <module name="tybs-parent" target="1.7" />
+      <module name="tybs-web-manager" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

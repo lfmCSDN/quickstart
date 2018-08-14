@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://G:/tsp-all/tsp-service" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="G:/tsp-all/pom.xml" />
+        <option value="G:/tsp-all/tsp-bat/pom.xml" />
+        <option value="G:/tsp-all/tsp-client/pom.xml" />
+        <option value="G:/tsp-all/tsp-datastage/pom.xml" />
+        <option value="G:/tsp-all/tsp-exe/pom.xml" />
+        <option value="G:/tsp-all/tsp-http/pom.xml" />
+        <option value="G:/tsp-all/tsp-jar/pom.xml" />
+        <option value="G:/tsp-all/tsp-kettle/pom.xml" />
+        <option value="G:/tsp-all/tsp-model/pom.xml" />
+        <option value="G:/tsp-all/tsp-service/pom.xml" />
+        <option value="G:/tsp-all/tsp-shell/pom.xml" />
+        <option value="G:/tsp-all/tsp-spi/pom.xml" />
+        <option value="G:/tsp-all/tsp-storedpro/pom.xml" />
+        <option value="G:/tsp-all/tsp-turnover/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.7" project-jdk-type="JavaSDK" />
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$/tybs-parent">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="svn://172.16.16.220/rwddyjpt/TSP%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8F%92%E4%BB%B6(2016)/branches" />
+                  <option value="svn://172.16.16.220/rwddyjpt/TSP%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8F%92%E4%BB%B6(2016)/documents" />
+                  <option value="svn://172.16.16.220/rwddyjpt/TSP%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8F%92%E4%BB%B6(2016)/tags" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="svn://172.16.16.220/rwddyjpt/TSP%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8F%92%E4%BB%B6(2016)/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tybs-web-manager">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="svn://172.16.16.220/rwddyjpt/TSP%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8F%92%E4%BB%B6(2016)/branches" />
+                  <option value="svn://172.16.16.220/rwddyjpt/TSP%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8F%92%E4%BB%B6(2016)/documents" />
+                  <option value="svn://172.16.16.220/rwddyjpt/TSP%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8F%92%E4%BB%B6(2016)/tags" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="svn://172.16.16.220/rwddyjpt/TSP%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8F%92%E4%BB%B6(2016)/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

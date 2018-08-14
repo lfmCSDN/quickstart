@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ty.tybs.web.mapper.CardBaseInfoMapper">
+
+    <update id="payment">
+        UPDATE card_base_info
+        SET oveage = oveage - #{amount}
+        WHERE card_Id = #{cardId}
+    </update>
+
+    <update id="receipt">
+        UPDATE card_base_info
+        SET oveage = oveage + #{amount}
+        WHERE card_Id = #{cardId}
+    </update>
+
+
+    <!--银行卡基本信息-->
+    <insert id="addCardBaseInfo" parameterType="com.ty.tybs.web.entity.vo.UserAndCardVo">
+        INSERT INTO card_base_info(card_Base_Info_Id,user_Base_Info_Id,card_Id,trans_Pwd,stat,open_Date,oveage,card_Type)
+        VALUES (#{userAndCardVo.cardBaseInfoId},
+                    #{userAndCardVo.userBaseInfoId},
+                    #{userAndCardVo.cardId},
+                    #{userAndCardVo.transPwd},
+                    #{userAndCardVo.stat},
+                    #{userAndCardVo.openDate},
+                    #{userAndCardVo.oveage},
+                    #{userAndCardVo.cardType})
+    </insert>
+
+    <!--挂失银行卡-->
+    <update id="lostUser">
+        UPDATE  card_base_info
+        SET stat = "挂失"
+        WHERE card_Base_Info_Id = #{userCardId} AND  stat = "正常"
+    </update>
+
+    <!--解挂银行卡-->
+    <update id="upLostUser">
+        UPDATE  card_base_info
+        SET stat = "正常"
+        WHERE card_Base_Info_Id = #{userCardId} AND  stat = "挂失"
+    </update>
+
+    <!--冻结银行卡-->
+    <update id="freezeUser">
+        UPDATE  card_base_info
+        SET stat = "冻结"
+        WHERE card_Base_Info_Id = #{userCardId} AND  stat = "正常"
+    </update>
+
+    <!--解冻银行卡-->
+    <update id="upFreezeUser">
+        UPDATE  card_base_info
+        SET stat = "正常"
+        WHERE card_Base_Info_Id = #{userCardId} AND  stat = "冻结"
+    </update>
+
+    <!--注销卡改变卡的状态-->
+    <update id="delCardById">
+        UPDATE  card_base_info
+        SET stat = "注销"
+        WHERE card_Base_Info_Id = #{cardBaseInfoId}
+    </update>
+
+    <!--根据外键查看卡对象-->
+    <select id="getObjectByForeignKey" resultType="com.ty.tybs.web.entity.po.CardBaseInfo">
+        SELECT * FROM card_base_info
+        WHERE user_Base_Info_Id = #{userBaseInfoId} AND card_Type=#{cardType}
+    </select>
+
+    <!--根据主键键查找card表对象-->
+    <select id="getObjectByPrimarykey" resultType="com.ty.tybs.web.entity.po.CardBaseInfo">
+        SELECT * FROM card_base_info
+        WHERE card_Base_Info_Id = #{cardBaseInfoId}
+    </select>
+
+    <!--根据身银行卡号查看卡对象-->
+    <select id="getObjectByCardId" resultType="com.ty.tybs.web.entity.po.CardBaseInfo">
+        SELECT * FROM card_base_info
+        WHERE card_Id = #{cardId}
+    </select>
+
+    <!--修改密码-->
+    <update id="modifyPwd">
+        UPDATE card_base_info
+        SET trans_Pwd = #{transPwd1}
+        WHERE card_Id = #{cardId}
+    </update>
+
+    <!--重置密码-->
+    <update id="resetPwd">
+        UPDATE card_base_info
+            SET trans_Pwd = #{resetDefault}
+         WHERE card_Id=#{cardId}
+
+    </update>
+
+    <!--查询账户信息-->
+    <select id="getObjectByKey" resultType="com.ty.tybs.web.entity.po.CardBaseInfo">
+        SELECT * FROM card_base_info
+        WHERE user_Base_Info_Id=#{userBaseInfoId}
+    </select>
+
+
+</mapper>

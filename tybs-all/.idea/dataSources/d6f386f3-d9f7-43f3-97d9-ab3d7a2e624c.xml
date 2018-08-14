@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="tybs-all@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="tybs-all">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="log"/>
+    <schema id="5" parent="1" name="log4j"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="quartz_test"/>
+    <table id="9" parent="2" name="card_base_info">
+      <Comment>银行卡信息表</Comment>
+    </table>
+    <table id="10" parent="2" name="operator_table"/>
+    <table id="11" parent="2" name="trans_list_info">
+      <Comment>交易明细表</Comment>
+    </table>
+    <table id="12" parent="2" name="user_base_info">
+      <Comment>用户信息表</Comment>
+    </table>
+    <table id="13" parent="2" name="user_oper_info">
+      <Comment>操作员信息表</Comment>
+    </table>
+    <column id="14" parent="9" name="card_Base_Info_Id">
+      <Position>1</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="9" name="user_Base_Info_Id">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="16" parent="9" name="card_Id">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="17" parent="9" name="trans_Pwd">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="18" parent="9" name="trans_Pwd_Num">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="19" parent="9" name="stat">
+      <Position>6</Position>
+      <Comment>状态：Y-正常,L-挂失，D-删除，F-冻结</Comment>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="20" parent="9" name="oveage">
+      <Position>7</Position>
+      <DataType>decimal(19,2)|0</DataType>
+    </column>
+    <column id="21" parent="9" name="open_Data">
+      <Position>8</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="22" parent="9" name="card_type">
+      <Position>9</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <index id="23" parent="9" name="FK_User_Card2">
+      <ColNames>user_Base_Info_Id</ColNames>
+    </index>
+    <key id="24" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>card_Base_Info_Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="25" parent="9" name="FK_User_Card2">
+      <ColNames>user_Base_Info_Id</ColNames>
+      <RefSchemaName>tybs-all</RefSchemaName>
+      <RefTableName>user_base_info</RefTableName>
+      <RefColNames>user_Base_Info_Id</RefColNames>
+    </foreign-key>
+    <column id="26" parent="10" name="oper_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="10" name="oper_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="28" parent="10" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="29" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>oper_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="11" name="trans_List_Info_Id">
+      <Position>1</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="11" name="card_Base_Info_Id">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="32" parent="11" name="trans_Id">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="33" parent="11" name="trans_Type">
+      <Position>4</Position>
+      <Comment>类型：存款、取款、转账</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="34" parent="11" name="trans_Amount">
+      <Position>5</Position>
+      <DataType>decimal(19,2)|0</DataType>
+    </column>
+    <column id="35" parent="11" name="trans_Time">
+      <Position>6</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <index id="36" parent="11" name="FK_Pk_Card_Trans">
+      <ColNames>card_Base_Info_Id</ColNames>
+    </index>
+    <key id="37" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>trans_List_Info_Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="11" name="FK_Pk_Card_Trans">
+      <ColNames>card_Base_Info_Id</ColNames>
+      <RefSchemaName>tybs-all</RefSchemaName>
+      <RefTableName>card_base_info</RefTableName>
+      <RefColNames>card_Base_Info_Id</RefColNames>
+    </foreign-key>
+    <column id="39" parent="12" name="user_Base_Info_Id">
+      <Position>1</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="12" name="card_Base_Info_Id">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="41" parent="12" name="user_Name">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="42" parent="12" name="user_Card_Id">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="43" parent="12" name="user_Tel">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="44" parent="12" name="user_Mobile_Phone">
+      <Position>6</Position>
+      <DataType>char(11)|0</DataType>
+    </column>
+    <column id="45" parent="12" name="user_Email">
+      <Position>7</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="46" parent="12" name="user_Sex">
+      <Position>8</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="47" parent="12" name="user_Address">
+      <Position>9</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <index id="48" parent="12" name="FK_User_Card">
+      <ColNames>card_Base_Info_Id</ColNames>
+    </index>
+    <key id="49" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_Base_Info_Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="50" parent="12" name="FK_User_Card">
+      <ColNames>card_Base_Info_Id</ColNames>
+      <RefSchemaName>tybs-all</RefSchemaName>
+      <RefTableName>card_base_info</RefTableName>
+      <RefColNames>card_Base_Info_Id</RefColNames>
+    </foreign-key>
+    <column id="51" parent="13" name="user_Oper_Info_Id">
+      <Position>1</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="13" name="oper_Name">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="53" parent="13" name="login_Pwd">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="54" parent="13" name="oper_Sex">
+      <Position>4</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="55" parent="13" name="oper_Statu">
+      <Position>5</Position>
+      <Comment>状态：Y能登录，N不能登录</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="56" parent="13" name="oper_Mobil_Phone">
+      <Position>6</Position>
+      <Comment>11位手机号码</Comment>
+      <DataType>char(11)|0</DataType>
+    </column>
+    <column id="57" parent="13" name="oper_Tel">
+      <Position>7</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="58" parent="13" name="oper_Email">
+      <Position>8</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="59" parent="13" name="oper_Card_Id">
+      <Position>9</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="60" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_Oper_Info_Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

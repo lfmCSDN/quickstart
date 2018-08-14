@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ty.tybs.web.mapper.RsaPwdInfoMapper">
+    <!--银行卡基本信息-->
+    <insert id="saveRsaPwdInfo" parameterType="com.ty.tybs.web.entity.vo.RsaPwdInfoVo">
+        INSERT INTO rsa_pwd_info(rsa_Pwd_info_Id,card_Base_Info_Id,privateKey)
+        VALUES (#{rsaPwdInfoVo.rsaPwdInfoId},
+                #{rsaPwdInfoVo.cardBaseInfoId},
+                #{rsaPwdInfoVo.privateKey})
+    </insert>
+
+    <!--根据身银行卡号查看卡对象-->
+    <select id="getObjectByCardBaseInfoId" resultType="com.ty.tybs.web.entity.po.RsaPwdInfo">
+        SELECT * FROM rsa_pwd_info
+        WHERE card_Base_Info_Id = #{cardBaseInfoId}
+    </select>
+
+
+
+
+</mapper>

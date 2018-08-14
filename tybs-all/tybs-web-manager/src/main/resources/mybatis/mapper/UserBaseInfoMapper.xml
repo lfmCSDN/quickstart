@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ty.tybs.web.mapper.UserBaseInfoMapper">
+    <!--根据外键查找user表对象-->
+    <select id="getObjectByForeignKey" resultType="com.ty.tybs.web.entity.po.UserBaseInfo">
+        SELECT * FROM user_base_info
+        WHERE card_Base_Info_Id = #{cardBaseInfoId}
+    </select>
+
+    <!--根据主键键查找user表对象-->
+    <select id="getObjectByPrimarykey" resultType="com.ty.tybs.web.entity.po.UserBaseInfo">
+        SELECT * FROM user_base_info
+        WHERE user_Base_Info_Id = #{userBaseInfoId}
+    </select>
+
+    <!--根据身份证号查找user对象-->
+    <select id="getObjectByCardId" resultType="com.ty.tybs.web.entity.po.UserBaseInfo">
+         SELECT * FROM user_base_info
+        WHERE user_Card_Id = #{userCardId}
+    </select>
+
+
+    <!--添加账户基本信息-->
+    <insert id="addUserBaseInfo" parameterType="com.ty.tybs.web.entity.vo.UserAndCardVo">
+        INSERT INTO user_base_info(user_Base_Info_Id,user_Name,user_Card_Id,user_Tel,user_Email,user_Address,user_Sex)
+        VALUES (#{userAndCardVo.userBaseInfoId},
+                #{userAndCardVo.userName},
+                #{userAndCardVo.userCardId},
+                #{userAndCardVo.userTel},
+                #{userAndCardVo.userEmail},
+                #{userAndCardVo.userAddress},
+                #{userAndCardVo.userSex})
+    </insert>
+    <!--查询账户信息-->
+    <select id="getUserByIdCard" resultType="com.ty.tybs.web.entity.vo.UserAndCardVo"
+            parameterType="com.ty.tybs.web.entity.qo.UserAndCardQo">
+        SELECT * FROM user_base_info u,card_base_info c WHERE u.user_Base_Info_Id=c.user_Base_Info_Id AND u.user_Card_Id = #{userAndCardQo.userCardId}
+    </select>
+    <!--注销卡-->
+    <!--<delete id="deleteUserByIdCard" parameterType="com.ty.tybs.web.entity.req.AddUserReq">-->
+    <!--DELETE FROM  user_base_info WHERE user_Card_Id=#{addUserReq.userBaseInfoId}-->
+    <!--</delete>-->
+
+    <!--修改手机号码-->
+    <update id="modifyTelPhone">
+        UPDATE user_base_info
+        SET user_Tel = #{newUserTel}
+        WHERE user_Base_Info_Id = #{userBaseInfoId}
+    </update>
+
+
+    <update id="modifyTelUser" parameterType="com.ty.tybs.web.entity.qo.UserBaseInfoQo">
+        UPDATE user_base_info SET
+        user_Base_Info_Id=#{userBaseInfoQo.userBaseInfoId},
+        user_Tel= #{userBaseInfoQo.userTel},
+        user_Email= #{userBaseInfoQo.userEmail},
+        user_Address= #{userBaseInfoQo.userAddress}
+        WHERE user_Card_Id = #{userBaseInfoQo.userCardId}
+    </update>
+
+    <!--只查询用户信息-->
+    <select id="getAcct" resultType="com.ty.tybs.web.entity.vo.UserBaseInfoVo"
+            parameterType="com.ty.tybs.web.entity.qo.UserBaseInfoQo">
+        SELECT * FROM user_base_info WHERE user_Card_Id = #{userBaseInfoQo.userCardId}
+    </select>
+
+</mapper>
